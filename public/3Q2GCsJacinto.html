@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content = "width=device-width, initial-scale=1.0">
+    <title>"What is your favorite game?" </title>
+    <link rel="icon" type = "image/png" href = "../assets/smileyfavicon.png">
+    <link rel="stylesheet" href = "3Q2GStyle.css">
+    <script>
+        function confirmSubmission(){
+            return confirm("Are you sure all details in the submission are complete and true?");
+        }
+        function confirmReset(){
+            return confirm("Are you sure you want to reset this form?");
+        }
+        function checkBlank(field){
+            if(field.value.trim() === ""){
+                field.classList.add("Error");
+            }
+            else{field.classList.remove("Error");}
+        }
+    </script>
+</head>
+<body>
+    <form
+        onsubmit = confirmSubmission();
+        onreset = confirmReset();>
+
+        <fieldset form="studentInfo">
+        
+        <legend>Student Information</legend>
+
+        <label for="studentID">Student ID:</label><br>
+        <input type="number" id="studentID" name="studentID" required><br>
+
+        <label for="userName">Username:</label><br>
+        <input type="text" id="userName" name="userName" required><br>
+
+        <label for="birthDay">Date of Birth:</label><br>
+        <input type="date" id="birthDay" name="birthDay" required><br>
+
+        <label for="eMail">EMail:</label><br>
+        <input type="email" id="eMail" name="eMail" required><br>
+
+        <label for="mobilePhone">Phone Number:</label><br>
+        <input type="text" id="mobilePhone" name="mobilePhone" required><br>
+
+        <label for="gradeLevel">Grade Level</label><br>
+        <select name="gradeLevel" required>
+            <option value=""></option>
+            <option value="g7">Grade 7</option>
+            <option value="g8">Grade 8</option>
+            <option value="g9">Grade 9</option>
+            <option value="g10">Grade 10</option>
+            <option value="g11">Grade 11</option>
+            <option value="g12">Grade 12</option>
+        </select><br>
+
+        <p>Residency Type:</p>
+        <label for="intern">Intern</label>
+        <input type="radio" id="intern" value="intern" required><br>
+        <label for="intern">Extern</label>
+        <input type="radio" id="extern" value="intern" required><br>
+
+         </fieldset>
+        
+        <label for="preferredEC">Preferred Organization/Club:</label> <br>
+        <select name="preferredEC" required>
+            <option value=""></option>
+            <option value="sciScho">The Science Scholar</option>
+            <option value="lagablab">Ang Lagablab</option>
+            <option value="himigAgham">Himig Agham</option>
+            <option value="pshsMUN">Pisay-MUN</option>
+            <option value="sagala">Sagala</option>
+        </select> <br>
+        <br>
+        <label for="reason">Why do you want to join?</label> <br>
+        <input type="textarea" id="reason" name="reason" required><br>
+
+        <br>
+        <br>
+
+        <label for="Submit">Submit Application</label> <br>
+        <input type="submit" id="Submit" name="Submit" required><br>
+
+        <label for="Reset">Reset Application</label><br>
+        <input type="reset" id="Reset" name="Reset" required><br>
+    </form> 
+</body>
