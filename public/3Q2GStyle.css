@@ -5,3 +5,13 @@ body {
     color: #f5ecd5;
     background-color: #222b4a;
 }
+
+.Error {
+    border-color: red;
+    border-radius: 2px;
+}
+
+:focus {
+    border-radius:2px;
+    border-color:dodgerblue;
+}
