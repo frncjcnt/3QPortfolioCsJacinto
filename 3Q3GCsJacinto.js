@@ -21,11 +21,14 @@ form.addEventListener("blur", function(e){
 
 form.addEventListener("reset", function(e) {
     if (!confirm("Sure you want to clear your data?")) {
-      e.preventDefault();
+      e.preventDefault(); 
     }
   });
-
+  
   function changeColor(ele) {
     console.log(ele);
     ele.style.backgroundColor = "blue";
   } 
+
+const form = document.getElementById("s");s
+

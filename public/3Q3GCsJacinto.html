@@ -8,7 +8,7 @@
     <link rel="stylesheet" href = "3Q2GStyle.css">
 </head>
 <body>
-    <form id="sForm" method="post">
+    <form id="s" method="post">
 
         <fieldset form="studentInfo">
         
@@ -47,10 +47,12 @@
         </label><br>
 
         <p>Residency Type:</p>
-        <label for="intern">Intern</label>
-        <input type="radio" id="intern" value="intern" onblur="checkBlank(this)"><br>
-        <label for="intern">Extern</label>
-        <input type="radio" id="extern" value="intern"onblur="checkBlank(this)" ><br>
+        <label for="residencyType">Residency Type</label>
+        <select name = "residencyType" required onblur="checkBlank(this)">
+            <option value=""></option>
+            <option value="Intern"></option>
+            <option value="Extern"></option>
+        </select>
 
          </fieldset> 
         

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content = "width=device-width, initial-scale=1.0">
+    <title>Signups</title>
+    <link rel="icon" type = "image/png" href = "../assets/smileyfavicon.png">
+    <link rel="stylesheet" href = "3Q2GStyle.css">
+<script>
+    const storageKey = "clubSignUps";
+
+    let allSignUps = [];
+
+    function loadSignups(){
+        const data = localStorage.getItem(storageKey);
+        if(data){
+            document.getElementById("tableBody").innerHTML = "";
+            document.getElementById("total").textContent = "0";
+            document.getElementbyId("message").textContent = "No sign-ups found in local storage";
+            return;
+        }
+
+        allSignUps = JSON.parse(data);
+        populateClubs();
+        displayTable(allSignups);
+    }
+
+    function populateClubs(){
+        const select = document.getElementById("clubFilter");
+        const clubs = new Set();
+
+        allSignups.array.forEach(s => clubs.add(s.club));
+
+        select.innerHTML = <option value="ALL">ALL</option>
+
+        clubs.forEach(c=>{
+            const opt = docment.createElement("option");
+            opt.value = c;
+            opt.textContent = c;
+            select.appendChild(opt);
+        });
+    }
+
+    function displayTable(list){
+        const tbody = document.getElementById("tableBody");
+        const msg = document.getElementById("message");
+
+        tbody.innerHTML = "";
+        msg.textContent = "";
+
+        if(list.length === 0){
+            document.getElementById("total").textContent = "0";
+            msg.textContent = "No sign-ups for the selected club";
+            return;
+        }
+
+        list.forEach(s => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+            <td>${s.studentID}</td>
+            <td>${s.userName}</td>
+            <td>${s.eMail}</td>
+            <td>${s.mobilePhone}</td>
+            <td>${s.birthDay}</td>
+            <td>${s.gradeLevel}</td>
+            <td>${s.residencyType}</td>
+            <td>${s.preferredEC}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        document.getElementbyId("total").textContent = list.length;
+    }
+
+    function filterClub(){
+        const selected = document.getElementbyId("clubFilter").value;
+        if(selected === "ALL"){
+            displayTable(allSignups);
+            return;
+        }
+
+        const filtered = allSignups.filter(s => s.club === selected);
+
+        displayTable(filtered);
+    }
+
+    window.onload = loadSignups;
+</script>
+</head>
+
+<body>
+    <div class = "container">
+        <h2> Student Signups</h2>
+        <label>
+            Filter by Club:
+            <select id="clubFilter" onchange="filterClub()">
+                <option value="All">ALL</option>
+            </select>
+        </label>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>eMail</th>
+                    <th>Phone Number</th>
+                    <th>Birthday</th>
+                    <th>Grade Level</th>
+                    <th>Residency Type</th>
+                    <th>Preferred EC</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <p>Total Signups: <span id="total">0</span></p>
+        <p id="message" class="message"></p>
+
+        <a href="3Q3GCsJacinto.html">Return</a>
+
+    </div>
+</body>
