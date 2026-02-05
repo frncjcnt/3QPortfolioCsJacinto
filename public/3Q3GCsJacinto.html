@@ -8,7 +8,8 @@
     <link rel="stylesheet" href = "3Q2GStyle.css">
 </head>
 <body>
-    <form id="s" method="post">
+    <form id="s" method="post" onsubmit="saveSignup(event)">
+
 
         <fieldset form="studentInfo">
         
@@ -46,12 +47,11 @@
         </select><br>
         </label><br>
 
-        <p>Residency Type:</p>
-        <label for="residencyType">Residency Type</label>
+        <label for="residencyType">Residency Type:</label>
         <select name = "residencyType" required onblur="checkBlank(this)">
             <option value=""></option>
-            <option value="Intern"></option>
-            <option value="Extern"></option>
+            <option value="Intern">Intern</option>
+            <option value="Extern">Extern</option>
         </select>
 
          </fieldset> 
@@ -77,6 +77,9 @@
 
         <label for="Reset">Reset Application</label><br>
         <input type="reset" id="Reset" name="Reset"><br>
+
+        <input type="button" id="viewSignups" onclick="goToView()">
+
     </form> 
-    <script src="3Q2GGCsJacinto.js"></script>
+    <script src="../3Q3GCsJacinto.js"></script>
 </body>

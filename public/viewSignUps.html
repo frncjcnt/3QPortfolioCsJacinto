@@ -13,32 +13,35 @@
 
     function loadSignups(){
         const data = localStorage.getItem(storageKey);
-        if(data){
+        if(!data){
             document.getElementById("tableBody").innerHTML = "";
             document.getElementById("total").textContent = "0";
-            document.getElementbyId("message").textContent = "No sign-ups found in local storage";
+            document.getElementById("message").textContent = "No sign-ups found in local storage";
             return;
         }
 
         allSignUps = JSON.parse(data);
         populateClubs();
-        displayTable(allSignups);
+        displayTable(allSignUps);
     }
 
     function populateClubs(){
         const select = document.getElementById("clubFilter");
         const clubs = new Set();
 
-        allSignups.array.forEach(s => clubs.add(s.club));
+            allSignUps.forEach(s => clubs.add(s.club || s.preferredEC));
 
-        select.innerHTML = <option value="ALL">ALL</option>
+        select.innerHTML = '<option value="ALL">ALL</option>';
 
         clubs.forEach(c=>{
-            const opt = docment.createElement("option");
+            if(!c) return;
+            const opt = document.createElement("option");
             opt.value = c;
             opt.textContent = c;
             select.appendChild(opt);
         });
+
+        select.value = "ALL";
     }
 
     function displayTable(list){
@@ -70,17 +73,17 @@
             tbody.appendChild(row);
         });
 
-        document.getElementbyId("total").textContent = list.length;
+        document.getElementById("total").textContent = list.length;
     }
 
     function filterClub(){
-        const selected = document.getElementbyId("clubFilter").value;
-        if(selected === "ALL"){
-            displayTable(allSignups);
+        const selected = document.getElementById("clubFilter").value;
+        if(String(selected).toUpperCase() === "ALL"){
+            displayTable(allSignUps);
             return;
         }
 
-        const filtered = allSignups.filter(s => s.club === selected);
+            const filtered = allSignUps.filter(s => (s.club || s.preferredEC) === selected);
 
         displayTable(filtered);
     }
@@ -95,7 +98,7 @@
         <label>
             Filter by Club:
             <select id="clubFilter" onchange="filterClub()">
-                <option value="All">ALL</option>
+                <option value="ALL">ALL</option>
             </select>
         </label>
 
