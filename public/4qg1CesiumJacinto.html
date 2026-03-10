@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content = "width=device-width, initial-scale=1.0">
+    <title>"What is your favorite game?" </title>
+    <link rel="icon" type = "image/png" href = "../assets/smileyfavicon.png">
+    <link rel="stylesheet" href = "3Q2GStyle.css">
+</head>
+<body>
+    <form id="s" method="post" onsubmit="saveSignup(event)">
+
+
+        <fieldset form="mRating">
+        
+        <legend>Add a Movie</legend>
+
+        <label for="title">Title:
+        <input type="text" id="title" name="title">
+        </label><br><br>
+
+        <label for="year">Year:
+        <input type="text" id="year" name="year">
+        </label><br><br>
+
+        <label for="genre">Genre
+        <select name="genre">
+            <option value=""></option>
+            <option value="action">Action</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="rom">Romance</option>
+            <option value="com">Comedy</option>
+            <option value="romcom">Romantic Comedy</option>
+            <option value="horror">Horror</option>
+        </select><br>
+        </label><br>
+
+        <label for="rating">Rating</label>
+        <div class="stars" id="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+         </fieldset> 
+
+        <button type="submit">Add Movie</button> 
+
+    </form> 
+
+    <div class="mList">
+
+    </div>
+    <script src="4qg1CesiumJacinto.js"></script>
+</body>
