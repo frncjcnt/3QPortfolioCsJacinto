@@ -6,15 +6,39 @@ body {
     background-color: #222b4a;
 }
 
+button {
+    background-color: #f5ecd5;
+}
+
 button:hover {
-    background-color:blanchedalmond;
+    scale: 1.05;
 }
 
-.stars.stars.star{
-    font-size:25px;
+.star{
     color: gray;
+    cursor: pointer;
+    transition: color, 0.25s;
 }
-
+.star:hover {
+    scale: 1.05;
+    color:khaki;
+}
 .star.selected{
     color:goldenrod;
+    transition: color, 0.25s;
+}
+
+.mSubmission {
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #f5ecd5;
+}
+
+.mList {
+    width:450px;
+    padding: 20px;
+    margin: 0 auto;
+    align-items: left;
+    border: 2px solid #f5ecd5;
 }
