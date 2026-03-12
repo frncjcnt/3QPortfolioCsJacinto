@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content = "width=device-width, initial-scale=1.0">
+    <title>"What is your favorite game?" </title>
+    <link rel="icon" type = "image/png" href = "../assets/smileyfavicon.png">
+    <link rel="stylesheet" href = "4qg2CesiumJacintoStyle.css">
+</head>
+<body>
+    <div class="mSubmission">
+    <h2>Add a Movie</h2>
+        <label for="title">Title:
+        <input type="text" id="title" name="title">
+        </label><br><br>
+
+        <label for="year">Year:
+        <input type="text" id="year" name="year">
+        </label><br><br>
+
+        <label for="genre">Genre
+        <select name="genre">
+            <option value=""></option>
+            <option value="Action">Action</option>
+            <option value="Science Fiction">Sci-Fi</option>
+            <option value="Romance">Romance</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Romantic Comedy">Romantic Comedy</option>
+            <option value="Horror">Horror</option>
+        </select><br>
+        </label><br>
+
+        <label for="rating">Rating</label>
+        <div class="stars" id="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+        <button onclick = "addMovie()">Submit</button> 
+    </div>
+
+    <div class="mList">
+        <ul id="mList">
+
+        </ul>
+    </div>
+
+    <button onclick = "clearAll()">Clear All</button>
+    <script src="4qg2CesiumJacinto.js"></script>
+</body>
